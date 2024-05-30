@@ -2,8 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <>
@@ -28,15 +27,18 @@ const Navbar = () => {
             <span className="ml-3 text-xl font-extrabold">E-book</span>
           </Link>
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <Link to={"/dashboard"} className="mr-5 hover:text-gray-900">
+              Dashboard
+            </Link>{" "}
             <Link to={"/books"} className="mr-5 hover:text-gray-900">
               All books
             </Link>
           </nav>
           <div className="flex gap-2">
-            <Button onClick={() => navigate("/login")} variant={"outline"}>
+            <Button onClick={() => navigate("auth/login")} variant={"outline"}>
               Login
             </Button>
-            <Button onClick={() => navigate("/signup")}>Sign UP</Button>
+            <Button onClick={() => navigate("auth/signup")}>Sign UP</Button>
           </div>
         </div>
       </header>
