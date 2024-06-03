@@ -1,10 +1,26 @@
-import { CirclePlusIcon, Menu, Package, Package2, Search } from "lucide-react";
+import {
+  CirclePlusIcon,
+  ListFilter,
+  Menu,
+  Package,
+  Package2,
+  PlusCircle,
+  Search,
+} from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuSeparator,
+  DropdownMenuCheckboxItem,
+  DropdownMenuLabel,
+} from "../ui/dropdown-menu";
 
 const DashboardLayout = () => {
   const navigate = useNavigate();
@@ -116,14 +132,30 @@ const DashboardLayout = () => {
               <DropdownMenuItem>Logout</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu> */}
-          <Button
-            onClick={() => navigate("/dashboard/addbook")}
-            variant="default"
-            size="icon"
-            className="ml-auto h-8 w-8"
-          >
-            <CirclePlusIcon className="h-4 w-4" />
-            <span className="sr-only">Toggle notifications</span>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm" className="h-7 gap-1">
+                <ListFilter className="h-3.5 w-3.5" />
+                <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
+                  Filter
+                </span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Filter by</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuCheckboxItem checked>
+                Active
+              </DropdownMenuCheckboxItem>
+              <DropdownMenuCheckboxItem>Draft</DropdownMenuCheckboxItem>
+              <DropdownMenuCheckboxItem>Archived</DropdownMenuCheckboxItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <Button size="sm" className="h-7 gap-1">
+            <PlusCircle className="h-3.5 w-3.5" />
+            <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
+              Add Product
+            </span>
           </Button>
         </header>
         <Outlet />

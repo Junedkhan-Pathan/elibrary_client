@@ -35,10 +35,10 @@ const Navbar = () => {
             </Link>
           </nav>
           <div className="flex gap-2">
-            <Button onClick={() => navigate("auth/login")} variant={"outline"}>
+            <Button onClick={() => navigate("login")} variant={"outline"}>
               Login
             </Button>
-            <Button onClick={() => navigate("auth/signup")}>Sign UP</Button>
+            <Button onClick={() => navigate("signup")}>Sign UP</Button>
           </div>
         </div>
       </header>

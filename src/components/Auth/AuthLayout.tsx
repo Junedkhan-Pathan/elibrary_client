@@ -1,12 +1,19 @@
-import { Outlet } from "react-router-dom"
-
+import { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const AuthLayout = () => {
-  return (
-      <div>
-          <Outlet/>
-    </div>
-  )
-}
+  const pathname = window.location.pathname;
+  const navigate = useNavigate();
 
-export default AuthLayout
+  useEffect(() => {
+    if (pathname === "/auth" || pathname == "/auth/") navigate("login");
+  }, [pathname]);
+
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
+};
+
+export default AuthLayout;

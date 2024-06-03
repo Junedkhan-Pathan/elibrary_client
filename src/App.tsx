@@ -6,11 +6,11 @@ import { Outlet } from "react-router-dom";
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div>
         <Outlet />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
