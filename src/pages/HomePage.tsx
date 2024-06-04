@@ -1,4 +1,3 @@
-import About from "@/components/Home/About";
 import GetInTouch from "@/components/Home/GetInTouch";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +6,7 @@ const HomePage = () => {
   const navigation = useNavigate();
   return (
     <>
-      <div>
+      <div className="max-w-7xl mx-auto">
         <section id="home" className="bg-white py-16">
           <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
             {/* <!-- Left column: Description and buttons --> */}

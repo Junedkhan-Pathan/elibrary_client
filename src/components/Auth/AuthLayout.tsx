@@ -5,14 +5,17 @@ const AuthLayout = () => {
   const pathname = window.location.pathname;
   const navigate = useNavigate();
 
+
+  
+
   useEffect(() => {
     if (pathname === "/auth" || pathname == "/auth/") navigate("login");
   }, [pathname]);
 
   return (
-    <div>
+    <>
       <Outlet />
-    </div>
+    </>
   );
 };
 

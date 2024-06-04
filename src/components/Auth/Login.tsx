@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  // 1. Define your form.
+  
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -75,7 +75,7 @@ const Login = () => {
               </Button>
               <p className="text-sm text-slate-500 mt-3 text-center">
                 Not have account yet ?{" "}
-                <Link className="text-blue-600" to={"/signup"}>
+                <Link className="text-blue-600" to={"/auth/signup"}>
                   SignUp
                 </Link>
               </p>

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import BooksPage from "./pages/BooksPage.tsx";
 import Login from "./components/Auth/Login.tsx";
 import SignUp from "./components/Auth/SignUp.tsx";
@@ -10,8 +11,9 @@ import DashboardPage from "./pages/DashboardPage.tsx";
 import AddBook from "./components/dashboard/book-form/AddBook.tsx";
 import AuthLayout from "./components/Auth/AuthLayout.tsx";
 import BookTable from "./components/dashboard/book-table/BookTable.tsx";
-import NavbarFooterWrapper from "./components/NavbarFooterWrapper.tsx";
 import HomePage from "./pages/HomePage.tsx";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -28,11 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "auth",
-        element: (
-          <NavbarFooterWrapper>
-            <AuthLayout />
-          </NavbarFooterWrapper>
-        ),
+        element: <AuthLayout />,
         children: [
           {
             path: "login",
@@ -47,11 +45,7 @@ const router = createBrowserRouter([
 
       {
         path: "dashboard",
-        element: (
-          <NavbarFooterWrapper>
-            <DashboardPage />
-          </NavbarFooterWrapper>
-        ),
+        element: <DashboardPage />,
         children: [
           {
             path: "",
@@ -69,6 +63,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
